@@ -1,5 +1,5 @@
 
-
+gsap.registerPlugin(ScrollTrigger) 
 // Get the text element
 const textElement = document.querySelector("#greeting");
 
@@ -15,6 +15,8 @@ const chars = document.querySelectorAll(".char");
 
 // Animate the characters
 gsap.from(chars, {
+
+  
   opacity: 0,
   y: 50,  
   x: 50,
@@ -32,7 +34,18 @@ gsap.from(chars, {
  
  
  // Animate the image
- .from(".text-content img", {
+ .from("#commerce", {
+
+  scrollTrigger:{
+    trigger: "#commerce",      // Element that triggers the animation
+    start: "top 2%",     // Start when the top of ".box" hits 80% of the viewport
+    end: "top 10%",       // End when the top of ".box" hits 30% of the viewport
+    scrub: false,          // Smooth animation as you scroll
+    markers: true,         // Show markers for debugging
+    toggleActions: "reset none none none"
+  },
+
+  
    opacity: 0,
    scale: 0.8,
    repeat: -1,
@@ -43,6 +56,10 @@ gsap.from(chars, {
 
  // Animate the paragraph
  .from(".hero p", {
+
+  
+
+  
    opacity: 0,
    y: -100,
    
